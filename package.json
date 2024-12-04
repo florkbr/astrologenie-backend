@@ -8,7 +8,7 @@
     "start": "node dist/index.js",
     "dev": "NODE_ENV=development nodemon src/index.ts",
     "dev:debug": "DEBUG=express:* npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "author": "",
   "license": "ISC",
@@ -18,12 +18,28 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@ava/typescript": "^5.0.0",
     "@types/express": "^5.0.0",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.10.1",
+    "ava": "^6.2.0",
     "concurrently": "^9.1.0",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
+  },
+  "ava": {
+    "files": [
+      "src/**/*.{test,spec}.*"
+    ],
+    "extensions": [
+      "cjs",
+      "mjs",
+      "js",
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }
